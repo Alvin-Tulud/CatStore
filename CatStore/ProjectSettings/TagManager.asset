@@ -11,9 +11,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Npc
+  - Ground
+  - Obstacle
   - 
   - 
   - 
@@ -40,4 +40,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 3876101177
+    locked: 0
+  - name: Obstacle
+    uniqueID: 1724121531
+    locked: 0
+  - name: Npc
+    uniqueID: 2654757323
+    locked: 0
+  - name: Npc_Thought
+    uniqueID: 2173935485
     locked: 0
