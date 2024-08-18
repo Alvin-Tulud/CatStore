@@ -993,6 +993,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   furniture: {fileID: 0}
+  standing_lines: []
 --- !u!1 &1638791805
 GameObject:
   m_ObjectHideFlags: 0
