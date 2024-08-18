@@ -96,6 +96,8 @@ GameObject:
   - component: {fileID: 8549484458106771552}
   - component: {fileID: 3252131357101079057}
   - component: {fileID: 8418131291929327658}
+  - component: {fileID: 1263020680712032087}
+  - component: {fileID: 4031729963474897582}
   m_Layer: 6
   m_Name: Npc_Movement
   m_TagString: Untagged
@@ -165,7 +167,7 @@ MonoBehaviour:
   height: 2
   canMove: 1
   maxSpeed: 1
-  gravity: {x: NaN, y: NaN, z: NaN}
+  gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -188,7 +190,7 @@ MonoBehaviour:
   endReachedDistance: 0.2
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
-  whenCloseToDestination: 1
+  whenCloseToDestination: 0
   constrainInsideGraph: 1
 --- !u!114 &8418131291929327658
 MonoBehaviour:
@@ -204,6 +206,71 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+--- !u!61 &1263020680712032087
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944268508489330688}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2, y: 2}
+  m_EdgeRadius: 0
+--- !u!114 &4031729963474897582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1944268508489330688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e2a6b84e1e89e4ca6b40c9edea443e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items_to_choose_from:
+  - {fileID: 11400000, guid: 977745d85c4502c4d993cf806524f625, type: 2}
+  - {fileID: 11400000, guid: f46f00f39dbd4b142b03e8eca6e23f67, type: 2}
+  - {fileID: 11400000, guid: 89762f8deeed91240998635733cf3af7, type: 2}
+  - {fileID: 11400000, guid: 2666536d3ba6ba14497719c27c0bd4fb, type: 2}
+  - {fileID: 11400000, guid: 7c32462e5680480448732ad9bd040360, type: 2}
+  - {fileID: 11400000, guid: 8672d71a7275dc94b9ded16ff29ae21f, type: 2}
 --- !u!1 &8172244914627200990
 GameObject:
   m_ObjectHideFlags: 0
