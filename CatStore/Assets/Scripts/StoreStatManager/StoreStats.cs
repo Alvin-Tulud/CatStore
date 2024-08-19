@@ -4,28 +4,22 @@ using UnityEngine;
 
 public class StoreStats : MonoBehaviour
 {
-    public static StoreStats store_stats;
-
-    public int store_happiness;
-    public int store_Money;
+    public static int store_happiness;
+    public static int store_Money;
 
     public List<Item> store_Items;
 
 
-    public Dictionary<Item, int> store_Stock = new Dictionary<Item, int>();
+    public static Dictionary<Item, int> store_Stock = new Dictionary<Item, int>();
 
     void Awake()
     {
-        if (store_stats != null)
-            GameObject.Destroy(store_stats);
-        else
-            store_stats = this;
-
-        DontDestroyOnLoad(this);
+        store_happiness = 100;
+        store_Money = 500;
 
         for (int i = 0; i < store_Items.Count; i++)
         {
-            store_Stock.Add(store_Items[i], 0);
+            store_Stock.Add(store_Items[i], 10);
         }
     }
 
@@ -33,7 +27,7 @@ public class StoreStats : MonoBehaviour
     //called by restock menu
     //returns false when player cannot buy the amount of stock they specified
     //returns true otherwise
-    public bool Buy_Stock(Item item, int amount) 
+    public static bool Buy_Stock(Item item, int amount) 
     {
         if (item.Item_BuyValue * amount > store_Money)
         {
@@ -45,9 +39,9 @@ public class StoreStats : MonoBehaviour
         }
         return true;
     }
-    
+
     //called by npc at cashier
-    public void Sell_Stock(Item item)
+    public static void Sell_Stock(Item item)
     {
         store_Money += item.Item_SellValue;
     }
@@ -55,7 +49,7 @@ public class StoreStats : MonoBehaviour
     //called by self to see if item has stock
     //returns false when there is no stock
     //returns true otherwise
-    public bool Check_Stock(Item item)
+    public static bool Check_Stock(Item item)
     {
         if (store_Stock[item] == 0)
         {
@@ -68,7 +62,7 @@ public class StoreStats : MonoBehaviour
     //if the item is in stock they will subtract it from the store stock
     //returns false if the store has none of that item left
     //returns true otherwise
-    public bool Grab_Stock(Item item)
+    public static bool Grab_Stock(Item item)
     {
         if (!Check_Stock(item))
         {
@@ -82,7 +76,7 @@ public class StoreStats : MonoBehaviour
     }
 
     //called by npc once when they checkout
-    public void Add_Happiness()
+    public static void Add_Happiness()
     {
         if (store_happiness < 100)
         {
@@ -93,8 +87,8 @@ public class StoreStats : MonoBehaviour
 
     //called by npc once if they cant find the item they want
     //called by the npc of they wait too long in a checkout line
-        //wont call add_Happiness during checkout if they took too long to checkout
-    public void Subtract_Happiness()
+    //wont call add_Happiness during checkout if they took too long to checkout
+    public static void Subtract_Happiness()
     {
         if (store_happiness > 0)
         {
