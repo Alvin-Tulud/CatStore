@@ -2,6 +2,7 @@ using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GetItemState : State
 {
@@ -9,6 +10,7 @@ public class GetItemState : State
     public AIDestinationSetter aiDestination;
     public GoCheckoutState checkoutState;
     public GoHomeState homeState;
+    public SpriteRenderer thought;
     private bool got_Item;
     private bool cant_get_Item;
 
@@ -23,6 +25,8 @@ public class GetItemState : State
     {
         int randItem = Random.Range(0, items_to_choose_from.Count);
         item_chosen = items_to_choose_from[randItem];
+
+        thought.sprite = item_chosen.Item_Image;
 
         currentTime = Time.fixedTime;
 

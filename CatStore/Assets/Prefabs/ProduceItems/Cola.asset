@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cola
   m_EditorClassIdentifier: 
   Item_Name: Drink
-  Item_Image: {fileID: 0}
+  Item_Image: {fileID: -3022349110239194084, guid: 363898b9d7f44a5418ecaf77e410772c, type: 3}
   Item_storageType: 2
   Item_SellValue: 3
   Item_BuyValue: 1

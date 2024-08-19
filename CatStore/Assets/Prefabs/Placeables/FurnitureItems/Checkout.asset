@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Checkout
   m_EditorClassIdentifier: 
   Furniture_Name: Checkout
-  Furniture_Image: {fileID: 0}
+  Furniture_Image: {fileID: 9133904945655345871, guid: 458307a5bf3279d4d8ca383f200661d1, type: 3}
   Furniture_storageType: 0
   Furniture_Type: 2
   Furniture_BuyValue: 150

@@ -10,10 +10,15 @@ public class Furniture_Data : MonoBehaviour
     public Queue<GameObject> standing_lines = new Queue<GameObject>();
     GameObject last_in_line;
 
+    private void Awake()
+    {
+        GetComponent<SpriteRenderer>().sprite = furniture.Furniture_Image;
+    }
+
     //lines up the npcs behind eachother as they pathfind to eachother and stop around them forming lines
-        //returns the game objects that the npc should follow
-            //if theres nothing in the queue it will navigate to the checkout
-            //else navigate to the last npc in the line
+    //returns the game objects that the npc should follow
+    //if theres nothing in the queue it will navigate to the checkout
+    //else navigate to the last npc in the line
     public GameObject LineUp(GameObject self)
     {
         if (standing_lines.Count == 0)

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Steak
   m_EditorClassIdentifier: 
   Item_Name: Meat
-  Item_Image: {fileID: 0}
+  Item_Image: {fileID: -8984853515652164847, guid: 75d02f788fe48d64287156e1e69d9319, type: 3}
   Item_storageType: 2
   Item_SellValue: 5
   Item_BuyValue: 3

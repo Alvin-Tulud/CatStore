@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sandwich Bread
   m_EditorClassIdentifier: 
   Item_Name: Bread
-  Item_Image: {fileID: 0}
+  Item_Image: {fileID: -8336803598436112976, guid: fd457bc4f258fb34ca2e106a0404548d, type: 3}
   Item_storageType: 1
   Item_SellValue: 2
   Item_BuyValue: 1

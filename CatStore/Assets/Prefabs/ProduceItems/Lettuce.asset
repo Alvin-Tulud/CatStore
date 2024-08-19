@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Lettuce
   m_EditorClassIdentifier: 
   Item_Name: Vegetable
-  Item_Image: {fileID: 0}
+  Item_Image: {fileID: 9136693246974446385, guid: 9ac2ece4e44f03840ae53c9b1af2f9bf, type: 3}
   Item_storageType: 1
   Item_SellValue: 2
   Item_BuyValue: 1
