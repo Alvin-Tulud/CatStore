@@ -14,10 +14,14 @@ public class GoCheckoutState : State
     private GameObject go_to_here = null;
     private GameObject line_up_behind = null;
 
+    float currentTime;
+    float checkoutTime = 3f;
+
     public override State RunCurrentState()
     {
         if (paid)
         {
+            Debug.Log("done");
             return homeState;
         }
         else
@@ -80,22 +84,34 @@ public class GoCheckoutState : State
     /*
     do a raycast to check how far away they are from the register
         if the raycast detects the register 0.6 units away
+            if the npc is the first in line for the register
+                make them path to the register
+                check if they are close to the resgister
+                    when they are dequeue them and add to happiness meter if not behind 5? people in line
     */
     private void atCheckout()
     {
-        RaycastHit2D hitTarget;
-        hitTarget = Physics2D.Raycast(transform.position, go_to_here.transform.position, 0.6f, go_to_here.layer);
-        Debug.DrawLine(transform.position, go_to_here.transform.position, Color.blue);
-        if (hitTarget && hitTarget.transform.GetInstanceID() == go_to_here.GetInstanceID())
+        //Debug.DrawLine(transform.position, go_to_here.transform.position, Color.blue);
+        //Debug.Log(transform.name + ": " + Vector3.Distance(transform.position, go_to_here.transform.position));
+        if (go_to_here.GetComponent<Furniture_Data>().CheckIfFirstInLine(gameObject))
         {
-            Debug.Log("at checkout");
-            Debug.Log(line_up_behind.name);
-            if (go_to_here.GetComponent<Furniture_Data>().CheckIfFirstInLine(gameObject))
+            line_up_behind = go_to_here;
+            aiDestination.target = line_up_behind.transform;
+            //Debug.Log(transform.name + ": " + Vector3.Distance(transform.position, go_to_here.transform.position));
+            //Debug.Log(line_up_behind.name);
+            if (Vector3.Distance(transform.position, go_to_here.transform.position) <= 1.8f)
             {
-                
-                line_up_behind = go_to_here;
-                aiDestination.target = line_up_behind.transform;
-                paid = true;
+                if (Time.time - currentTime > checkoutTime)
+                {
+                    //Debug.Log("at checkout");
+                    //Debug.Log("bought");
+                    go_to_here.GetComponent<Furniture_Data>().GetOutOfLine();
+                    paid = true;
+                }
+            }
+            else
+            {
+                currentTime = Time.fixedTime;
             }
         }
     }

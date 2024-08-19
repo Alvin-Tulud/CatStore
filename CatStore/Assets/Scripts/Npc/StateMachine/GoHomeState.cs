@@ -10,6 +10,7 @@ public class GoHomeState : State
     public override State RunCurrentState()
     {
         //Debug.Log("i go home now: " + transform.name);
+        Destroy(this.gameObject);
         return this;
     }
 

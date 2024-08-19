@@ -67,7 +67,7 @@ public class GetItemState : State
     */
     public override State getDestination()
     {
-        Debug.Log("finding: " + item_chosen.Item_Name);
+        //Debug.Log("finding: " + item_chosen.Item_Name);
         GameObject[] allfurniture = GameObject.FindGameObjectsWithTag("furniture");
 
         List<GameObject> correct_storages = new List<GameObject>();
@@ -105,15 +105,15 @@ public class GetItemState : State
 
             if (aiPath.reachedEndOfPath)
             {
-                Debug.Log("path done");
+                //Debug.Log("path done");
                 if (StoreStats.Grab_Stock(item_chosen))
                 {
-                    Debug.Log("took: " + item_chosen.Item_Name);
+                    //Debug.Log("took: " + item_chosen.Item_Name);
                     got_Item = true;
                 }
                 else
                 {
-                    Debug.Log("theres no: " + item_chosen.Item_Name);
+                    //Debug.Log("theres no: " + item_chosen.Item_Name);
                     StoreStats.Subtract_Happiness();
                     cant_get_Item = true;
                 }

@@ -34,14 +34,21 @@ public class Furniture_Data : MonoBehaviour
     }
 
 
-    //checks if the first npc in line is at the register and dequeue them from the queue
+    //checks if the first npc in line is at the register
     public bool CheckIfFirstInLine(GameObject self)
     {
-        if (self.GetInstanceID() == standing_lines.Peek().GetInstanceID())
+        if (standing_lines.Count > 0 && self.GetInstanceID() == standing_lines.Peek().GetInstanceID())
         {
-            standing_lines.Dequeue();
+            //Debug.Log("first: " + self.name);
             return true;
         }
+        //Debug.Log("not first: " + self.name);
         return false;
+    }
+
+    //called when the npc should be taken out of the queue
+    public void GetOutOfLine()
+    {
+        standing_lines.Dequeue();
     }
 }

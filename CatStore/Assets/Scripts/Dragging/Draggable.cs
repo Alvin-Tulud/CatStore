@@ -19,7 +19,7 @@ public class Draggable : MonoBehaviour
     [SerializeField]
     private Grid PlacementGrid;
 
-    void Start()
+    void Awake()
     {
         InitializeVariables();
     }
@@ -31,6 +31,7 @@ public class Draggable : MonoBehaviour
         cardCollider = GetComponent<Collider2D>();
         canMove = false;
         dragging = false;
+        PlacementGrid = GameObject.FindAnyObjectByType<Grid>();
     }
 
     void Update()
