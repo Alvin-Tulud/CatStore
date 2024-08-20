@@ -124,4 +124,6 @@ public class GetItemState : State
             }
         }
     }
+
+    public Item getItemChosen() { return item_chosen; }
 }

@@ -56,4 +56,6 @@ public class Furniture_Data : MonoBehaviour
     {
         standing_lines.Dequeue();
     }
+
+    public int GetLineLength() { return standing_lines.Count; }
 }

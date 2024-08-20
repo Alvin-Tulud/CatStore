@@ -10,6 +10,7 @@ public class GoCheckoutState : State
     public AIDestinationSetter aiDestination;
     public GoHomeState homeState;
     private bool paid;
+    private bool line_too_long;
 
     private GameObject go_to_here = null;
     private GameObject line_up_behind = null;
@@ -78,6 +79,11 @@ public class GoCheckoutState : State
         line_up_behind = go_to_here.GetComponent<Furniture_Data>().LineUp(gameObject);
         aiDestination.target = line_up_behind.transform;
 
+        if (go_to_here.GetComponent<Furniture_Data>().GetLineLength() > 5)
+        {
+            line_too_long = true;
+        }
+
         return this;
     }
 
@@ -106,7 +112,17 @@ public class GoCheckoutState : State
                     //Debug.Log("at checkout");
                     //Debug.Log("bought");
                     go_to_here.GetComponent<Furniture_Data>().GetOutOfLine();
+                    StoreStats.Sell_Stock(GetComponent<GetItemState>().getItemChosen());
                     paid = true;
+
+                    if (line_too_long)
+                    {
+                        StoreStats.Subtract_Happiness();
+                    }
+                    else
+                    {
+                        StoreStats.Add_Happiness();
+                    }
                 }
             }
             else
