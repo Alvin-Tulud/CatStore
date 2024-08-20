@@ -39,6 +39,7 @@ public class StoreStats : MonoBehaviour
         else
         {
             store_Stock[item] += amount;
+            store_Money -= item.Item_BuyValue * amount;
         }
         return true;
     }

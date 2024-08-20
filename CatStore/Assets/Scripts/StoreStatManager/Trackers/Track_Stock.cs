@@ -9,7 +9,7 @@ public class TrackStock : MonoBehaviour
     private List<Item> stock_items = new List<Item>();
     private List<Sprite> stock_images = new List<Sprite>();
     private List<Image> stock_slots = new List<Image>();
-    private List<TextMeshProUGUI> stock_count = new List<TextMeshProUGUI>();
+    public List<TextMeshProUGUI> stock_count = new List<TextMeshProUGUI>();
 
     float currentTime;
     float maxTime = 0.2f;
@@ -60,7 +60,8 @@ public class TrackStock : MonoBehaviour
         {
             stock_slots.Add(transform.GetChild(i).GetComponent<Image>());
             stock_slots[i].sprite = stock_images[i];
-            stock_count.Add(transform.GetChild(i).GetChild(0).GetComponent<TextMeshProUGUI>());
+            stock_count.Add(transform.GetChild(i).GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>());
+            //Debug.Log(i);
         }
     }
 }

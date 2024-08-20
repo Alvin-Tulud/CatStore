@@ -12,6 +12,7 @@ public class Track_Restock : MonoBehaviour
     private List<TextMeshProUGUI> stock_count = new List<TextMeshProUGUI>();
     private List<int> stock_buy_counts = new List<int>();
     public Button buyButton;
+    public TextMeshProUGUI buy_cost;
 
     bool calledOnce;
     // Start is called before the first frame update
@@ -42,6 +43,13 @@ public class Track_Restock : MonoBehaviour
         {
             buyButton.interactable = true;
         }
+
+        buy_cost.text = (stock_buy_counts[0] * stock_items[0].Item_BuyValue +
+            stock_buy_counts[1] * stock_items[1].Item_BuyValue +
+            stock_buy_counts[2] * stock_items[2].Item_BuyValue +
+            stock_buy_counts[3] * stock_items[3].Item_BuyValue +
+            stock_buy_counts[4] * stock_items[4].Item_BuyValue +
+            stock_buy_counts[5] * stock_items[5].Item_BuyValue).ToString();
     }
 
     private void setStats()
@@ -82,6 +90,11 @@ public class Track_Restock : MonoBehaviour
 
     public void buyStock()
     {
-        
+        for (int i = 0; i < stock_items.Count; i++)
+        {
+            StoreStats.Buy_Stock(stock_items[i], stock_buy_counts[i]);
+            stock_buy_counts[i] = 0;
+            stock_count[i].text = stock_buy_counts[i].ToString();
+        }
     }
 }
