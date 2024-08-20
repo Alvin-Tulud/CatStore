@@ -9,6 +9,7 @@ public class GoCheckoutState : State
     public AIPath aiPath;
     public AIDestinationSetter aiDestination;
     public GoHomeState homeState;
+    public SpriteRenderer thought;
     private bool paid;
     private bool line_too_long;
 
@@ -82,6 +83,7 @@ public class GoCheckoutState : State
         if (go_to_here.GetComponent<Furniture_Data>().GetLineLength() > 5)
         {
             line_too_long = true;
+            thought.sprite = GetComponent<GetItemState>().getItemChosen().Angy_Image;
         }
 
         return this;
@@ -121,6 +123,7 @@ public class GoCheckoutState : State
                     }
                     else
                     {
+                        thought.sprite = GetComponent<GetItemState>().getItemChosen().Hapi_Image;
                         StoreStats.Add_Happiness();
                     }
                 }

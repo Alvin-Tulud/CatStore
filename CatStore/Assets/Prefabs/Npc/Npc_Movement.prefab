@@ -272,9 +272,9 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 2
+  slowdownDistance: 1
   pickNextWaypointDist: 0.5
-  endReachedDistance: 1.5
+  endReachedDistance: 0.75
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
@@ -345,6 +345,7 @@ MonoBehaviour:
   aiPath: {fileID: 3252131357101079057}
   aiDestination: {fileID: 8418131291929327658}
   homeState: {fileID: 6631068371777150729}
+  thought: {fileID: 5472359503569537577}
 --- !u!114 &6631068371777150729
 MonoBehaviour:
   m_ObjectHideFlags: 0

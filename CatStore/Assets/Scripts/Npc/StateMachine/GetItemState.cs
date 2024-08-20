@@ -113,11 +113,13 @@ public class GetItemState : State
                 if (StoreStats.Grab_Stock(item_chosen))
                 {
                     //Debug.Log("took: " + item_chosen.Item_Name);
+                    thought.sprite = item_chosen.Buy_Image;
                     got_Item = true;
                 }
                 else
                 {
                     //Debug.Log("theres no: " + item_chosen.Item_Name);
+                    thought.sprite = item_chosen.Angy_Image;
                     StoreStats.Subtract_Happiness();
                     cant_get_Item = true;
                 }

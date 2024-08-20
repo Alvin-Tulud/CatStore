@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Ice Cream
   m_EditorClassIdentifier: 
   Item_Name: IceCream
-  Item_Image: {fileID: 0}
+  Item_Image: {fileID: 4248755116888324304, guid: 8f9ce045b97579f44bec63890fdc6ff1, type: 3}
+  Angy_Image: {fileID: 859687887515925905, guid: dfb1c207e49056d46b9867394e537852, type: 3}
+  Hapi_Image: {fileID: -1853338522854243065, guid: 565bfbd3c1f22374897d3d8df5f48735, type: 3}
+  Buy_Image: {fileID: 7133071421325897899, guid: e5ebc162fdfbbff42b1050ead5152a31, type: 3}
   Item_storageType: 3
   Item_SellValue: 4
   Item_BuyValue: 2

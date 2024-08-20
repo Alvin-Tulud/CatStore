@@ -111,11 +111,11 @@ public class Draggable : MonoBehaviour
         // Get mouse position in world coordinates
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         // Move the tile to the mouse position
-        transform.position = PlacementGrid.WorldToCell(mousePos); //moves tile to mouse pos
+        transform.position = PlacementGrid.LocalToCell(mousePos); //moves tile to mouse pos
         //transform.SetParent(null);
 
         //ROTATE WHEN R IS PRESSED
-        if (Input.GetKeyDown(KeyCode.R) || Input.GetMouseButtonDown(1))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             transform.Rotate(0, 0, 90);
         }
@@ -128,7 +128,7 @@ public class Draggable : MonoBehaviour
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         // Round TargetChecker's position to the nearest grid item
-        TargetChecker.transform.position = PlacementGrid.WorldToCell(mousePos); //1. Moves TargetChecker and rounds its pos to the tile grid
+        TargetChecker.transform.position = PlacementGrid.LocalToCell(mousePos); //1. Moves TargetChecker and rounds its pos to the tile grid
         //Debug.Log("targetChecker: " + TargetChecker.transform.position);
         //Debug.Log("DragTarget: " + DragTarget.transform.position);
 
@@ -150,7 +150,7 @@ public class Draggable : MonoBehaviour
         else//valid placement spot
         {
             //Debug.Log("Valid Spot");
-            DragTarget.transform.position = PlacementGrid.WorldToCell(mousePos); //3. move DragTarget to the checker's spot if it is valid
+            DragTarget.transform.position = PlacementGrid.LocalToCell(mousePos); //3. move DragTarget to the checker's spot if it is valid
             LastValidPosition = DragTarget.transform.position;
         }
 

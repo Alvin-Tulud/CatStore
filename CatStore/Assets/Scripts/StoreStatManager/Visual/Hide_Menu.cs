@@ -27,8 +27,8 @@ public class Hide_Menu : MonoBehaviour
         menu_init_pos = new Vector3(0, 0, 0);
         menu_final_pos = new Vector3(-480, 0, 0);
 
-        Debug.Log("init: " + menu_init_pos);
-        Debug.Log("final: " + menu_final_pos);
+        //Debug.Log("init: " + menu_init_pos);
+        //Debug.Log("final: " + menu_final_pos);
     }
 
     private void FixedUpdate()

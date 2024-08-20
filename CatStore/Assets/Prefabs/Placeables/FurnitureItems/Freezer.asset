@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Freezer
   m_EditorClassIdentifier: 
   Furniture_Name: Freezer
-  Furniture_Image: {fileID: 9133904945655345871, guid: 458307a5bf3279d4d8ca383f200661d1, type: 3}
+  Furniture_Image: {fileID: -8098339867115096868, guid: e026d50622683db4da98fbe0cdc1a5b8, type: 3}
   Furniture_storageType: 3
   Furniture_Type: 1
   Furniture_BuyValue: 200
