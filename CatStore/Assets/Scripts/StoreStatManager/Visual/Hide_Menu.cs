@@ -14,7 +14,7 @@ public class Hide_Menu : MonoBehaviour
     private Image arrow_to_flip;
 
     private float countUp;
-    private const float maxCount = 50f;
+    private const float maxCount = 25f;
     // Start is called before the first frame update
     void Awake()
     {
