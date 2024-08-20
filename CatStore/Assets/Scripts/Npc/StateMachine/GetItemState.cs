@@ -1,6 +1,7 @@
 using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +17,7 @@ public class GetItemState : State
 
     public List<Item> items_to_choose_from;
     private Item item_chosen;
-    private GameObject go_to_here = null;
+    public GameObject go_to_here = null;
 
     float currentTime;
     float maxTime = 0.5f;
@@ -48,8 +49,10 @@ public class GetItemState : State
         else
         {
             //do logic for getting item
-                //goes to item until it reaches the stand it wants to go to
-            if (go_to_here != null)
+            //goes to item until it reaches the stand it wants to go to
+            //https://discussions.unity.com/t/how-to-check-if-a-property-is-missing-or-not-set-none/735268/5
+            bool isMissing = ReferenceEquals(go_to_here, null) ? false : (go_to_here ? false : true);
+            if (!isMissing)
             {
                 aiDestination.target = go_to_here.transform;
                 findShelf();

@@ -148,6 +148,7 @@ MonoBehaviour:
   playerMovable: 1
   SpawnDragTarget: {fileID: 3604249049153581447, guid: 4e579b4a87ea58e41ad1fd061237d7c9, type: 3}
   SpawnTargetChecker: {fileID: 8411856720762673162, guid: 3ac46631a50a4d24b8ef6c94fc136a98, type: 3}
+  SpawnHoverSelect: {fileID: 5472506835695717547, guid: ae646f01b33e8984d8422f1a444b8044, type: 3}
   OtherObjectMask:
     serializedVersion: 2
     m_Bits: 256

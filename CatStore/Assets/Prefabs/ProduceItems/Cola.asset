@@ -19,4 +19,4 @@ MonoBehaviour:
   Buy_Image: {fileID: 7133071421325897899, guid: e5ebc162fdfbbff42b1050ead5152a31, type: 3}
   Item_storageType: 2
   Item_SellValue: 3
-  Item_BuyValue: 1
+  Item_BuyValue: 2

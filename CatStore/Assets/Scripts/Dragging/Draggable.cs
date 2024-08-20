@@ -10,8 +10,10 @@ public class Draggable : MonoBehaviour
 
     public GameObject SpawnDragTarget;
     public GameObject SpawnTargetChecker;
+    public GameObject SpawnHoverSelect;
     private GameObject DragTarget;
     private GameObject TargetChecker;
+    private GameObject HoverSelect;
     private Vector3 LastValidPosition;
 
     [SerializeField]
@@ -67,6 +69,19 @@ public class Draggable : MonoBehaviour
                 dragging = true;
             }
         }
+
+        if (cardCollider == Physics2D.OverlapPoint(mousePos, OtherObjectMask) && HoverSelect == null)
+        {
+            GameObject g;//store as gameobject and set them to be 
+            g = Instantiate(SpawnHoverSelect, transform.position, transform.rotation); //Creates HoverSelect
+            g.transform.position = Vector3.zero;
+            g.transform.SetParent(transform, false);
+            HoverSelect = g;
+        }
+        else if (cardCollider != Physics2D.OverlapPoint(mousePos, OtherObjectMask))
+        {
+            Destroy(HoverSelect);
+        }
     }
 
     // Create DragTarget and TargetChecker objects
@@ -119,6 +134,11 @@ public class Draggable : MonoBehaviour
         {
             transform.Rotate(0, 0, 90);
         }
+
+        //recalculate the part of the astar graph under it
+        Bounds bounds = GetComponent<Collider2D>().bounds;
+
+        AstarPath.active.UpdateGraphs(bounds);
     }
 
     // Check the validity of the tile's position
@@ -174,7 +194,10 @@ public class Draggable : MonoBehaviour
                 this.transform.position = DragTarget.transform.position;
                 Destroy(DragTarget);
                 Destroy(TargetChecker);
+                Destroy(HoverSelect);
             }
         }
+
+        //recalculate astar grid after placing down the furniture
     }
 }

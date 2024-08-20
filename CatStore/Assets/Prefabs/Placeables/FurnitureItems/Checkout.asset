@@ -16,4 +16,4 @@ MonoBehaviour:
   Furniture_Image: {fileID: -267656027207017903, guid: 0217daa21f90b944b9f4aec4b23c770d, type: 3}
   Furniture_storageType: 0
   Furniture_Type: 2
-  Furniture_BuyValue: 150
+  Furniture_BuyValue: 200

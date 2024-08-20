@@ -9,7 +9,7 @@ public class TrackStock : MonoBehaviour
     private List<Item> stock_items = new List<Item>();
     private List<Sprite> stock_images = new List<Sprite>();
     private List<Image> stock_slots = new List<Image>();
-    public List<TextMeshProUGUI> stock_count = new List<TextMeshProUGUI>();
+    private List<TextMeshProUGUI> stock_count = new List<TextMeshProUGUI>();
 
     float currentTime;
     float maxTime = 0.2f;

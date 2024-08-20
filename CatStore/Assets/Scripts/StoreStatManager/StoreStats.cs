@@ -16,11 +16,11 @@ public class StoreStats : MonoBehaviour
     void Awake()
     {
         store_happiness = 100;
-        store_Money = 500;
+        store_Money = 300;
 
         for (int i = 0; i < store_Items.Count; i++)
         {
-            store_Stock.Add(store_Items[i], 10);
+            store_Stock.Add(store_Items[i], 5);
         }
 
         store_Items_copy = store_Items;

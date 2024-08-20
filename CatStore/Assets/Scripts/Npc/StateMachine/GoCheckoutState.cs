@@ -12,8 +12,8 @@ public class GoCheckoutState : State
     private bool paid;
     private bool line_too_long;
 
-    private GameObject go_to_here = null;
-    private GameObject line_up_behind = null;
+    public GameObject go_to_here = null;
+    public GameObject line_up_behind = null;
 
     float currentTime;
     float checkoutTime = 3f;
@@ -28,9 +28,11 @@ public class GoCheckoutState : State
         else
         {
             //do logic for going to checkout
-                //queues in checkout until it has its turn
-                    //only check to dequeue it at checkout when it is near the checkout register it wants to go to
-            if (go_to_here != null)
+            //queues in checkout until it has its turn
+            //only check to dequeue it at checkout when it is near the checkout register it wants to go to
+            //https://discussions.unity.com/t/how-to-check-if-a-property-is-missing-or-not-set-none/735268/5
+            bool isMissing = ReferenceEquals(go_to_here, null) ? false : (go_to_here ? false : true);
+            if (!isMissing)
             {
                 atCheckout();
             }
