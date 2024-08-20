@@ -10,7 +10,7 @@ public class Track_Money : MonoBehaviour
     float currentTime;
     float maxTime = 0.5f;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         money_amount = GetComponent<TextMeshProUGUI>();
 

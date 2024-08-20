@@ -8,6 +8,7 @@ public class StoreStats : MonoBehaviour
     public static int store_Money;
 
     public List<Item> store_Items;
+    public static List<Item> store_Items_copy = new List<Item>();
 
 
     public static Dictionary<Item, int> store_Stock = new Dictionary<Item, int>();
@@ -21,6 +22,8 @@ public class StoreStats : MonoBehaviour
         {
             store_Stock.Add(store_Items[i], 10);
         }
+
+        store_Items_copy = store_Items;
     }
 
 
@@ -95,4 +98,6 @@ public class StoreStats : MonoBehaviour
             store_happiness--;
         }
     }
+
+    public static List<Item> getitemList() { return store_Items_copy; }
 }
