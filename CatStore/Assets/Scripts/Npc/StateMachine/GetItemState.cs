@@ -12,8 +12,8 @@ public class GetItemState : State
     public GoCheckoutState checkoutState;
     public GoHomeState homeState;
     public SpriteRenderer thought;
-    private bool got_Item;
-    private bool cant_get_Item;
+    public bool got_Item;
+    public bool cant_get_Item;
 
     public List<Item> items_to_choose_from;
     private Item item_chosen;

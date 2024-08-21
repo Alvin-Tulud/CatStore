@@ -9,8 +9,8 @@ public class GoCheckoutState : State
     public AIDestinationSetter aiDestination;
     public GoHomeState homeState;
     public SpriteRenderer thought;
-    private bool paid;
-    private bool line_too_long;
+    public bool paid;
+    public bool line_too_long;
 
     public GameObject go_to_here = null;
     public GameObject line_up_behind = null;
@@ -106,9 +106,9 @@ public class GoCheckoutState : State
         {
             line_up_behind = go_to_here;
             aiDestination.target = line_up_behind.transform;
-            //Debug.Log(transform.name + ": " + Vector3.Distance(transform.position, go_to_here.transform.position));
+            //Debug.Log(transform.name + ": " + Vector2.Distance(transform.position, go_to_here.transform.position));
             //Debug.Log(line_up_behind.name);
-            if (Vector3.Distance(transform.position, go_to_here.transform.position) <= 1.8f)
+            if (Vector2.Distance(transform.position, go_to_here.transform.position) <= 1f)
             {
                 if (Time.time - currentTime > checkoutTime)
                 {
