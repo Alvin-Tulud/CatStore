@@ -7,8 +7,8 @@ public class SpawnNPC : MonoBehaviour
     float currentTime;
     float maxTime = 3.5f;
     float currentInterval;
-    float spawnSpeedUpInterval = 60f;
-    float maxTimeDecrement = 0.05f;
+    float spawnSpeedUpInterval = 10f;
+    float maxTimeDecrement = 0.1f;
 
     public GameObject npc_to_spawn;
     // Start is called before the first frame update
