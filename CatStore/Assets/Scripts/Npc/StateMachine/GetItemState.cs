@@ -2,6 +2,7 @@ using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,15 +13,15 @@ public class GetItemState : State
     public GoCheckoutState checkoutState;
     public GoHomeState homeState;
     public SpriteRenderer thought;
-    public bool got_Item;
-    public bool cant_get_Item;
+    private bool got_Item;
+    private bool cant_get_Item;
 
     public List<Item> items_to_choose_from;
     private Item item_chosen;
-    public GameObject go_to_here = null;
+    private GameObject go_to_here;
 
-    float currentTime;
-    float maxTime = 0.5f;
+    private float currentTime;
+    private float maxTime = 0.5f;
 
     private void Awake()
     {
@@ -33,11 +34,14 @@ public class GetItemState : State
 
         got_Item = false;
         cant_get_Item = false;
+        //GameObject.FindWithTag("target").GetComponent<TextMeshProUGUI>().text = item_chosen.Item_Name;
+        getDestination();
     }
 
     //treat as if it were an update function
     public override State RunCurrentState()
     {
+        //GameObject.FindWithTag("target").GetComponent<TextMeshProUGUI>().text = "stateRunning";
         if (got_Item)
         {
             return checkoutState;
@@ -51,19 +55,25 @@ public class GetItemState : State
             //do logic for getting item
             //goes to item until it reaches the stand it wants to go to
             //https://discussions.unity.com/t/how-to-check-if-a-property-is-missing-or-not-set-none/735268/5
-            bool isMissing = ReferenceEquals(go_to_here, null) ? false : (go_to_here ? false : true);
+            bool isMissing = !ReferenceEquals(go_to_here, null) && (go_to_here ? false : true);
+            //GameObject.FindWithTag("target").GetComponent<TextMeshProUGUI>().text = "bool runs: " + isMissing;
             if (!isMissing)
             {
+                //GameObject.FindWithTag("target").GetComponent<TextMeshProUGUI>().text = "has target: " + (go_to_here != null);
                 aiDestination.target = go_to_here.transform;
                 findShelf();
+
             }
             else
             {
-                getDestination();
-            }
 
+                //GameObject.FindWithTag("target").GetComponent<TextMeshProUGUI>().text = "no destination";
+                getDestination();
+                //.FindWithTag("target").GetComponent<TextMeshProUGUI>().text = "has target: ";
+            }
             return this;
         }
+
     }
 
     /*
@@ -74,6 +84,7 @@ public class GetItemState : State
     */
     public override State getDestination()
     {
+        GameObject.FindWithTag("target").GetComponent<TextMeshProUGUI>().text = "has target: ";
         //Debug.Log("finding: " + item_chosen.Item_Name);
         GameObject[] allfurniture = GameObject.FindGameObjectsWithTag("furniture");
 

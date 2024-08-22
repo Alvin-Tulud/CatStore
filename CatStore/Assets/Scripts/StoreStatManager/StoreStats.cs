@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class StoreStats : MonoBehaviour
@@ -15,7 +16,7 @@ public class StoreStats : MonoBehaviour
 
     void Awake()
     {
-        store_happiness = 100;
+        store_happiness = 50;
         store_Money = 300;
 
         for (int i = 0; i < store_Items.Count; i++)
@@ -24,6 +25,8 @@ public class StoreStats : MonoBehaviour
         }
 
         store_Items_copy = store_Items;
+
+        //GameObject.FindWithTag("target").GetComponent<TextMeshProUGUI>().text = "text test";
     }
 
 

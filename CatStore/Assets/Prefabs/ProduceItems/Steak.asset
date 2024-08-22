@@ -18,5 +18,5 @@ MonoBehaviour:
   Hapi_Image: {fileID: -1853338522854243065, guid: 565bfbd3c1f22374897d3d8df5f48735, type: 3}
   Buy_Image: {fileID: 7133071421325897899, guid: e5ebc162fdfbbff42b1050ead5152a31, type: 3}
   Item_storageType: 2
-  Item_SellValue: 5
-  Item_BuyValue: 3
+  Item_SellValue: 9
+  Item_BuyValue: 4

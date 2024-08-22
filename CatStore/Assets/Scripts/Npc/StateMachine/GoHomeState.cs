@@ -8,8 +8,20 @@ public class GoHomeState : State
     public AIPath aiPath;
     public AIDestinationSetter aiDestination;
     private GameObject go_to_here;
+
+    private bool first_run;
+
+    private void Awake()
+    {
+        first_run = true;
+    }
     public override State RunCurrentState()
     {
+        if(first_run)
+        {
+            getDestination();
+            first_run = false;
+        }
         //Debug.Log("i go home now: " + transform.name);
         if(go_to_here == null)
         {

@@ -9,17 +9,28 @@ public class GoCheckoutState : State
     public AIDestinationSetter aiDestination;
     public GoHomeState homeState;
     public SpriteRenderer thought;
-    public bool paid;
-    public bool line_too_long;
+    private bool first_run;
+    private bool paid;
+    private bool line_too_long;
 
-    public GameObject go_to_here = null;
-    public GameObject line_up_behind = null;
+    private GameObject go_to_here = null;
+    private GameObject line_up_behind = null;
 
-    float currentTime;
-    float checkoutTime = 3f;
+    private float currentTime;
+    private float checkoutTime = 3f;
+
+    private void Awake()
+    {
+        first_run = true;
+    }
 
     public override State RunCurrentState()
     {
+        if (first_run)
+        {
+            getDestination();
+            first_run = false;
+        }
         if (paid)
         {
             Debug.Log("done");
@@ -108,7 +119,7 @@ public class GoCheckoutState : State
             aiDestination.target = line_up_behind.transform;
             //Debug.Log(transform.name + ": " + Vector2.Distance(transform.position, go_to_here.transform.position));
             //Debug.Log(line_up_behind.name);
-            if (Vector2.Distance(transform.position, go_to_here.transform.position) <= 1f)
+            if (Vector2.Distance(transform.position, go_to_here.transform.position) <= 1.5f)
             {
                 if (Time.time - currentTime > checkoutTime)
                 {
