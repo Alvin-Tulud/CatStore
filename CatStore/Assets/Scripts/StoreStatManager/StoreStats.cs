@@ -16,7 +16,7 @@ public class StoreStats : MonoBehaviour
 
     void Awake()
     {
-        store_happiness = 50;
+        store_happiness = 100;
         store_Money = 300;
 
         for (int i = 0; i < store_Items.Count; i++)

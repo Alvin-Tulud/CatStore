@@ -6,9 +6,10 @@ public class SpawnNPC : MonoBehaviour
 {
     float currentTime;
     float maxTime = 3.5f;
+    const float minTime = 1.5f;
     float currentInterval;
-    float spawnSpeedUpInterval = 10f;
-    float maxTimeDecrement = 0.1f;
+    float spawnSpeedUpInterval = 15f;
+    float maxTimeDecrement = 0.05f;
 
     public GameObject npc_to_spawn;
     // Start is called before the first frame update
@@ -26,7 +27,7 @@ public class SpawnNPC : MonoBehaviour
             spawnRandomSpot();
             currentTime = Time.fixedTime;
         }
-        if (Time.time - currentInterval > spawnSpeedUpInterval)
+        if (Time.time - currentInterval > spawnSpeedUpInterval && maxTime > minTime)
         {
             if (maxTime - maxTimeDecrement > 0)
             {
