@@ -6,7 +6,7 @@ public class SpawnNPC : MonoBehaviour
 {
     float currentTime;
     float maxTime = 3.5f;
-    const float minTime = 1.5f;
+    const float minTime = 0.5f;
     float currentInterval;
     float spawnSpeedUpInterval = 15f;
     float maxTimeDecrement = 0.05f;
